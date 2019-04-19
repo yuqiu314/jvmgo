@@ -4,6 +4,7 @@ import "flag"
 import "fmt"
 import "os"
 
+// Cmd is used to store java options
 type Cmd struct {
 	helpFlag    bool
 	versionFlag bool

@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 )
 
+// DirEntry is one of the 4 entries
 type DirEntry struct {
 	absDir string
 }
@@ -16,11 +17,11 @@ func newDirEntry(path string) *DirEntry {
 	}
 	return &DirEntry{absDir}
 }
-func (self *DirEntry) readClass(className string) ([]byte, Entry, error) {
-	fileName := filepath.Join(self.absDir, className)
+func (entry *DirEntry) readClass(className string) ([]byte, Entry, error) {
+	fileName := filepath.Join(entry.absDir, className)
 	data, err := ioutil.ReadFile(fileName)
-	return data, self, err
+	return data, entry, err
 }
-func (self *DirEntry) String() string {
-	return self.absDir
+func (entry *DirEntry) String() string {
+	return entry.absDir
 }
